@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #020617);
+            color: #e2e8f0;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
+
+        .server {
+            position: relative;
+            overflow: hidden;
+            width: 340px;
+            padding: 24px;
+            border-radius: 18px;
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
+        }
+
+        .server-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(30px);
+            transform: scale(1.2);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .server > *:not(.server-bg) {
+            position: relative;
+            z-index: 1;
+        }
+
+        .server:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(78, 163, 255, 0.18);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .services {
+            display: grid;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .service {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            text-decoration: none;
+            color: #e2e8f0;
+            background: rgba(30, 41, 59, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .service:hover {
+            background: rgba(59, 130, 246, 0.18);
+            border-color: rgba(59, 130, 246, 0.35);
+            transform: scale(1.02);
+        }
+
+        .service img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .name {
+            flex-grow: 1;
+            font-weight: 500;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .server {
+                width: 100%;
+                max-width: 420px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="server">
+            <img
+                class="server-bg"
+                src="assets/shrek.jpg"
+                alt=""
+                aria-hidden="true"
+            >
+            <h1>Shrek</h1>
+
+            <div class="services">
+                <a class="service" href="http://shrek-sonarr.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.simpleicons.org/sonarr" alt="Sonarr logo">
+                    <div class="name">Sonarr</div>
+                    <div class="tag">TV</div>
+                </a>
+
+                <a class="service" href="http://shrek-transmission.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/transmission.png" alt="Transmission logo">
+                    <div class="name">Transmission</div>
+                    <div class="tag">DL</div>
+                </a>
+
+                <a class="service" href="http://shrek-radarr.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.simpleicons.org/radarr" alt="Radarr logo">
+                    <div class="name">Radarr</div>
+                    <div class="tag">Movies</div>
+                </a>
+
+                <a class="service" href="http://shrek-jackett.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jackett-light.png" alt="Jackett logo">
+                    <div class="name">Jackett</div>
+                    <div class="tag">Index</div>
+                </a>
+
+                <a class="service" href="http://shrek-plex.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.simpleicons.org/plex" alt="Plex logo">
+                    <div class="name">Plex</div>
+                    <div class="tag">Media</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="server">
+            <img
+                class="server-bg"
+                src="assets/cerberus.jpg"
+                alt=""
+                aria-hidden="true"
+            >
+            <h1>Cerberus</h1>
+
+            <div class="services">
+                <a class="service" href="http://cerberus-sonarr.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.simpleicons.org/sonarr" alt="Sonarr logo">
+                    <div class="name">Sonarr</div>
+                    <div class="tag">TV</div>
+                </a>
+
+                <a class="service" href="http://cerberus-transmission.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/transmission.png" alt="Transmission logo">
+                    <div class="name">Transmission</div>
+                    <div class="tag">DL</div>
+                </a>
+
+                <a class="service" href="http://cerberus-radarr.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.simpleicons.org/radarr" alt="Radarr logo">
+                    <div class="name">Radarr</div>
+                    <div class="tag">Movies</div>
+                </a>
+
+                <a class="service" href="http://cerberus-jackett.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/jackett-light.png" alt="Jackett logo">
+                    <div class="name">Jackett</div>
+                    <div class="tag">Index</div>
+                </a>
+
+                <a class="service" href="http://cerberus-plex.local" target="_blank" rel="noopener noreferrer">
+                    <img src="https://cdn.simpleicons.org/plex" alt="Plex logo">
+                    <div class="name">Plex</div>
+                    <div class="tag">Media</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        const cards = Array.from(document.querySelectorAll(".server"));
+        const maxTilt = 8;
+        const maxDepth = 14;
+
+        cards.forEach((card) => {
+            card.addEventListener("pointermove", (event) => {
+                const rect = card.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width;
+                const y = (event.clientY - rect.top) / rect.height;
+
+                const offsetX = (x - 0.5) * 2;
+                const offsetY = (y - 0.5) * 2;
+
+                const rotateY = offsetX * maxTilt;
+                const rotateX = -offsetY * maxTilt;
+                const pushDown = (Math.abs(offsetX) + Math.abs(offsetY)) / 2;
+                const translateZ = -(2 + (pushDown * maxDepth));
+
+                card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(${translateZ.toFixed(2)}px)`;
+            });
+
+            card.addEventListener("pointerleave", () => {
+                card.style.transform = "";
+            });
+        });
+    </script>
+</body>
+</html>
